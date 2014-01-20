@@ -1,0 +1,118 @@
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body, html {
+  background-color: #212121;
+  width:100%;
+  height:100%;
+  margin:0;
+  padding:0;
+  font-family: 'futurabook';
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  overflow-x:hidden;
+}
+
+html {
+  zoom: 100%;
+
+}
+
+canvas {
+  float:left;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0); /* mobile webkit */
+}
+
+h1,
+h2 {
+  float:left;
+  font-size: 22px;
+  font-weight: bold;
+  color:#ccc;
+  font-family: 'Helvetica';
+  margin-left:20px;
+  margin-bottom: 0px;
+}
+
+h2 {
+  width:100%;
+  font-size: 18px;
+  color:#aaa;
+  margin-bottom: 40px;
+}
+
+.example,
+.canvas-wrapper {
+  float:left;
+  width:100%;
+}
+
+#example1 {
+  z-index: 800;
+}
+
+#change-color-btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  float:left;
+  font-size: 18px;
+  font-weight: bold;
+  color:#aaa;
+  font-family: 'Helvetica';
+  margin-top:20px;
+  margin-left:20px;
+  margin-bottom: 0px;
+  border:2px solid #aaa;
+  padding:5px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+
+  -webkit-transition: color 0.3s ease-out, border 0.3s ease-out;
+  -moz-transition: color 0.3s ease-out, border 0.3s ease-out;
+  -o-transition: color 0.3s ease-out, border 0.3s ease-out;
+  transition: color 0.3s ease-out, border 0.3s ease-out;
+}
+
+#change-color-btn:hover {
+  color:#fff;
+  border:2px solid #fff;
+}
+
+a.back-btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  float:left;
+  font-size: 12px;
+  font-weight: bold;
+  color:#aaa;
+  font-family: 'Helvetica';
+  margin-top:10px;
+  margin-left:20px;
+  margin-bottom: 0px;
+  border:2px solid #aaa;
+  padding:5px 10px 4px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  text-decoration: none;
+
+  -webkit-transition: color 0.3s ease-out, border 0.3s ease-out;
+  -moz-transition: color 0.3s ease-out, border 0.3s ease-out;
+  -o-transition: color 0.3s ease-out, border 0.3s ease-out;
+  transition: color 0.3s ease-out, border 0.3s ease-out;
+}
+
+a.back-btn:hover {
+  color:#fff;
+  border:2px solid #fff;
+}
