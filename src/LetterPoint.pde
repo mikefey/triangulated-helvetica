@@ -63,7 +63,7 @@ class LetterPoint {
     void draw() {
         if (oscillating && active) {
             angle++;
-            angle = (angle) * (Math.PI/180); // Convert to radians
+            angle = (angle) * (Math.PI / 180);
             rotatedX = Math.cos(angle) * (tlParticle.x - originalPosition.x) - Math.sin(angle) * (tlParticle.y-originalPosition.y) + originalPosition.x;
             rotatedY = Math.sin(angle) * (tlParticle.x - originalPosition.x) + Math.cos(angle) * (tlParticle.y - originalPosition.y) + originalPosition.y;
 

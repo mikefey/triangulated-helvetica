@@ -21,6 +21,9 @@ $(document).ready(function() {
                 $('#change-color-btn').bind('click', processingInstance.changeLetterColors);
             } else if ($('#example2').length > 0) {
                 processingInstance = Processing.getInstanceById('example2');
+            } else if ($('#example3').length > 0) {
+                processingInstance = Processing.getInstanceById('example3');
+                $('#explode-letters-btn').bind('click', processingInstance.explodeLetters);
             }
 
             if (processingInstance.setupExample) {

@@ -40,7 +40,9 @@ class Letter {
                     //letterPoint.active = false;
                 }
 
-                //letterPoint.visible = false;
+                if (!showPoints) {
+                    letterPoint.visible = false;
+                }
 
                 phys.addParticle(letterPoint.tlParticle);
                 //letterPoint.tlParticle.lock();
