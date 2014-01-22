@@ -8,6 +8,7 @@ class Letter {
     PVector position;
     boolean showOutlines = false;
     boolean showPoints = true;
+    boolean makeSpring = true;
     int letterWidth;
 
     Letter(String letter, int fontSize, int x, int y) {
@@ -53,7 +54,9 @@ class Letter {
             trianglePointGroups.add(tlp);
         }
 
-        createSpring(phys);
+        if (makeSpring) {
+            createSpring(phys);
+        }
     }
 
     void hidePoints() {

@@ -46,6 +46,7 @@ void addLetter(String letter) {
     Letter let = new Letter(letter, fontSize, leftPos, 10 + (numLines * (lineHeight + 10)));
     let.addPoints(physics);
     let.showPoints = false;
+    let.makeSpring = false;
     let.hidePoints();
     letters.add(let);
 

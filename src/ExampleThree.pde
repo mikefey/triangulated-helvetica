@@ -16,7 +16,7 @@ boolean oscillating = false;
 boolean dragApart = true;
 boolean unlocked = false;
 String[] lettersToRender;
-
+ArrayList<Tween> tweens;
 
 void setup() {
     onResize();
@@ -25,6 +25,7 @@ void setup() {
     physics.addBehavior(new toxi.physics2d.behaviors.GravityBehavior(new toxi.geom.Vec2D(0, 0.2)));
     physics.setWorldBounds(new toxi.geom.Rect(0,0,width,height));
 
+    tweens = new ArrayList<Tween>();
     letters = new ArrayList<Triangle[]>();
     colors = new ArrayList<ArrayList<color>>();
     particles = new ArrayList<ArrayList<LetterParticle>>();
@@ -47,6 +48,7 @@ void addLetter(String letter) {
     Letter let = new Letter(letter, fontSize, leftPos, 10 + (numLines * (lineHeight + 10)));
     let.setColor(color(205, 120, 216));
     let.showPoints = false;
+    let.makeSpring = false;
     let.addPoints(physics);
     letters.add(let);
 
@@ -59,8 +61,32 @@ void addLetter(String letter) {
 
 void explodeLetters() {
     for (int i = 0; i < letters.size(); i++) {
-        for (int ii = 0; ii < letters.get(i).letterPoints.size(); ii++) {
-            letters.get(i).letterPoints.get(ii).tlParticle.unlock();
+        for (int ii = 0; ii < letters.get(i).trianglePointGroups.size(); ii++) {
+
+            toxi.physics2d.VerletParticle2D firstParticle = letters.get(i).trianglePointGroups.get(ii).get(0).tlParticle;
+            int randXpos = random(firstParticle.x - random(20), firstParticle.x + random(20));
+            int randYpos = random(firstParticle.y - random(20), firstParticle.y + random(20));
+            int randNegXint = ceil(random(0, 2));
+            if (randNegXint == 1) {
+                randXpos = randXpos * -1;
+            }
+            int randNegYint = ceil(random(0, 2));
+            if (randNegYint == 1) {
+                randYpos = randYpos * -1;
+            }
+
+            for (int iii = 0; iii < letters.get(i).trianglePointGroups.get(ii).size(); iii++) {
+                toxi.physics2d.VerletParticle2D currentParticle = letters.get(i).trianglePointGroups.get(ii).get(iii).tlParticle;
+
+                Tween positionXTween = new Tween(currentParticle, 'x', Tween.regularEaseOut, currentParticle.x, currentParticle.x + randXpos, .5);
+                Tween positionYTween = new Tween(currentParticle, 'y', Tween.regularEaseOut, currentParticle.y, currentParticle.y + randYpos, .5);
+                tweens.add(positionXTween);
+                tweens.add(positionYTween);
+                //currentParticle.unlock();
+                //console.log(positionTween);
+                positionXTween.start();
+                positionYTween.start();
+            }
         }
     }
 }
@@ -160,6 +186,10 @@ void draw() {
 
     for (int i = 0; i < letters.size(); i++) {
         letters.get(i).draw();
+    }
+
+    for (int i = 0; i < tweens.size(); i++) {
+        tweens.get(i).tick();
     }
 
     /* cursorIncrement++;
