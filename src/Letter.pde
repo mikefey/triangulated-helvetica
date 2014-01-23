@@ -10,6 +10,8 @@ class Letter {
     boolean showPoints = true;
     boolean makeSpring = true;
     int letterWidth;
+    int opacity = 1;
+    boolean useOpacity = false;
 
     Letter(String letter, int fontSize, int x, int y) {
         fontSize = fontSize;
@@ -177,7 +179,13 @@ class Letter {
     void draw() {
         for(int i = 0; i < trianglePointGroups.size(); i++) {
             noStroke();
-            fill(triangleColors.get(i));
+
+            if (useOpacity) {
+                fill(triangleColors.get(i), (opacity * 255))
+            } else {
+                fill(triangleColors.get(i))
+            }
+
             if (showOutlines) {
                 stroke(33, 33, 33);
             }

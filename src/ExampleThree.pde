@@ -49,6 +49,7 @@ void addLetter(String letter) {
     let.setColor(color(205, 120, 216));
     let.showPoints = false;
     let.makeSpring = false;
+    let.useOpacity = true;
     let.addPoints(physics);
     letters.add(let);
 
@@ -60,34 +61,44 @@ void addLetter(String letter) {
 }
 
 void explodeLetters() {
+    int letterDelay = random(300, 500);
     for (int i = 0; i < letters.size(); i++) {
         for (int ii = 0; ii < letters.get(i).trianglePointGroups.size(); ii++) {
 
             toxi.physics2d.VerletParticle2D firstParticle = letters.get(i).trianglePointGroups.get(ii).get(0).tlParticle;
-            int randXpos = random(firstParticle.x - random(20), firstParticle.x + random(20));
-            int randYpos = random(firstParticle.y - random(20), firstParticle.y + random(20));
-            int randNegXint = ceil(random(0, 2));
-            if (randNegXint == 1) {
-                randXpos = randXpos * -1;
+            PVector pointPos = new PVector(firstParticle.x, firstParticle.y);
+            int letterY = random(300, 600);
+            if (pointPos.y > 64) {
+                letterY = letterY * -1;
             }
-            int randNegYint = ceil(random(0, 2));
-            if (randNegYint == 1) {
-                randYpos = randYpos * -1;
+
+            int letterX = random(300, 600);
+            if (pointPos.x > letters.get(i).position.x + (letters.get(i).letterWidth / 2)) {
+                letterX = letterX * -1;
             }
+
+            PVector letterCenter = new PVector(letterX, letterY);
+            PVector newPos = PVector.sub(pointPos, letterCenter);
 
             for (int iii = 0; iii < letters.get(i).trianglePointGroups.get(ii).size(); iii++) {
                 toxi.physics2d.VerletParticle2D currentParticle = letters.get(i).trianglePointGroups.get(ii).get(iii).tlParticle;
 
-                Tween positionXTween = new Tween(currentParticle, 'x', Tween.regularEaseOut, currentParticle.x, currentParticle.x + randXpos, .5);
-                Tween positionYTween = new Tween(currentParticle, 'y', Tween.regularEaseOut, currentParticle.y, currentParticle.y + randYpos, .5);
+                Tween positionXTween = new Tween(currentParticle, 'x', Tween.strongEaseOut, currentParticle.x, currentParticle.x + newPos.x,5);
+                Tween positionYTween = new Tween(currentParticle, 'y', Tween.strongEaseOut, currentParticle.y, currentParticle.x + newPos.y, 5);
                 tweens.add(positionXTween);
                 tweens.add(positionYTween);
                 //currentParticle.unlock();
                 //console.log(positionTween);
+
                 positionXTween.start();
                 positionYTween.start();
             }
         }
+
+        Tween opacityTween = new Tween(letters.get(i), 'opacity', Tween.strongEaseOut, 1, 0, 2);
+        tweens.add(opacityTween);
+
+        opacityTween.start();
     }
 }
 
