@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html class='ie6'> <![endif]-->
+<!--[if IE 7 ]>    <html class='ie7'> <![endif]-->
+<!--[if IE 8 ]>    <html class='ie8'> <![endif]-->
+<!--[if IE 9 ]>    <html class='ie9'> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang='en'> <!--<![endif]-->
+    <head>
+        <title>Helvetica</title>
+        <meta name='apple-mobile-web-app-capable' content='yes' />
+        <meta name='description' content='Triangulated Helvetica'>
+        <link rel='stylesheet' href='../assets/css/style.css' />
+    </head>
+    <body>
+         <div class='description'>
+            <h1>Triangulated Helvetica</h1>
+            <p>Eperimentation with triangulation and Helvetica using <a href='http://processingjs.org/' target='_blank'>processing.js</a>.</p>
+            <h2>Usage:</h2>
+            <p>Requires <a href='https://github.com/r3mi/poly2tri.js'>poly2tri.js</a><br/><br/>
+            Include scripts<br/><br/>
+            <code>
+                &lt;script type='text/javascript' src='poly2tri.js'&gt;&lt;/script&gt;<br/>
+                &lt;script type='text/javascript' src='TriangulatedHelvetica.js'&gt;&lt;/script&gt;
+            </code><br/><br/>
+
+            Create letters (currently only supports captital A-Z)<br/><br/>
+            <code>
+                &lt;script type='text/javascript'&gt;<br/>
+                var letterTriangles = TriangulatedHelvetica.A(fontSize, x, y)<br/>
+                &lt;/script&gt;
+            </code>
+        </div>
+    </body>
+</html>

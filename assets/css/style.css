@@ -6,15 +6,20 @@
 
 body, html {
   background-color: #212121;
+  color:#ccc;
   width:100%;
   height:100%;
   margin:0;
   padding:0;
-  font-family: 'futurabook';
+  font-family: 'Helvetica';
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow-x:hidden;
+}
+
+a {
+  color:#CD78D8;
 }
 
 html {
@@ -33,8 +38,6 @@ h2 {
   float:left;
   font-size: 22px;
   font-weight: bold;
-  color:#ccc;
-  font-family: 'Helvetica';
   margin-left:20px;
   margin-bottom: 0px;
 }
@@ -44,6 +47,25 @@ h2 {
   font-size: 18px;
   color:#aaa;
   margin-bottom: 40px;
+}
+
+.description {
+  float:left;
+  width:100%;
+  max-width: 700px;
+  margin:20px 0px 0px 20px;
+}
+
+.description h1,
+.description h2,
+.description p {
+  float:left;
+  margin-left:0px;
+  width:100%;
+}
+
+.description p {
+  margin-top:20px;
 }
 
 .example,

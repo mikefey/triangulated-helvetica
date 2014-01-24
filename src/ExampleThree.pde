@@ -17,6 +17,7 @@ boolean dragApart = true;
 boolean unlocked = false;
 String[] lettersToRender;
 ArrayList<Tween> tweens;
+boolean exploded = false;
 
 void setup() {
     onResize();
@@ -60,12 +61,34 @@ void addLetter(String letter) {
     }
 }
 
-void explodeLetters() {
-    int letterDelay = random(300, 500);
-    for (int i = 0; i < letters.size(); i++) {
-        for (int ii = 0; ii < letters.get(i).trianglePointGroups.size(); ii++) {
+void resetLetters() {
+    leftPos = 20;
+    tweens = new ArrayList<Tween>();
+    letters = new ArrayList<Triangle[]>();
+    colors = new ArrayList<ArrayList<color>>();
+    particles = new ArrayList<ArrayList<LetterParticle>>();
 
-            toxi.physics2d.VerletParticle2D firstParticle = letters.get(i).trianglePointGroups.get(ii).get(0).tlParticle;
+    setupExample();
+
+    exploded = false;
+}
+
+void explodeLetters() {
+    if (exploded == false) {
+        exploded = true;
+        for (int i = 0; i < letters.size(); i++) {
+            Letter currentLetter = letters.get(i);
+            explodeGroup(currentLetter);
+        }
+    }
+}
+
+void explodeGroup(Letter currentLetter) {
+    int letterDelay = random(100, 500);
+
+    setTimeout(function() {
+        for (int ii = 0; ii < currentLetter.trianglePointGroups.size(); ii++) {
+            toxi.physics2d.VerletParticle2D firstParticle = currentLetter.trianglePointGroups.get(ii).get(0).tlParticle;
             PVector pointPos = new PVector(firstParticle.x, firstParticle.y);
             int letterY = random(300, 600);
             if (pointPos.y > 64) {
@@ -73,33 +96,31 @@ void explodeLetters() {
             }
 
             int letterX = random(300, 600);
-            if (pointPos.x > letters.get(i).position.x + (letters.get(i).letterWidth / 2)) {
+            if (pointPos.x > currentLetter.position.x + (currentLetter.letterWidth / 2)) {
                 letterX = letterX * -1;
             }
 
             PVector letterCenter = new PVector(letterX, letterY);
             PVector newPos = PVector.sub(pointPos, letterCenter);
 
-            for (int iii = 0; iii < letters.get(i).trianglePointGroups.get(ii).size(); iii++) {
-                toxi.physics2d.VerletParticle2D currentParticle = letters.get(i).trianglePointGroups.get(ii).get(iii).tlParticle;
+            for (int iii = 0; iii < currentLetter.trianglePointGroups.get(ii).size(); iii++) {
+                toxi.physics2d.VerletParticle2D currentParticle = currentLetter.trianglePointGroups.get(ii).get(iii).tlParticle;
 
                 Tween positionXTween = new Tween(currentParticle, 'x', Tween.strongEaseOut, currentParticle.x, currentParticle.x + newPos.x,5);
                 Tween positionYTween = new Tween(currentParticle, 'y', Tween.strongEaseOut, currentParticle.y, currentParticle.x + newPos.y, 5);
                 tweens.add(positionXTween);
                 tweens.add(positionYTween);
-                //currentParticle.unlock();
-                //console.log(positionTween);
 
                 positionXTween.start();
                 positionYTween.start();
             }
         }
 
-        Tween opacityTween = new Tween(letters.get(i), 'opacity', Tween.strongEaseOut, 1, 0, 2);
+        Tween opacityTween = new Tween(currentLetter, 'opacity', Tween.strongEaseOut, 1, 0, 2);
         tweens.add(opacityTween);
 
         opacityTween.start();
-    }
+    }, letterDelay);
 }
 
 void addLine() {

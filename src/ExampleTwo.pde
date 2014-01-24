@@ -57,6 +57,18 @@ void addLetter(String letter) {
     }
 }
 
+void resetLetters() {
+    leftPos = 20;
+    tweens = new ArrayList<Tween>();
+    letters = new ArrayList<Triangle[]>();
+    colors = new ArrayList<ArrayList<color>>();
+    particles = new ArrayList<ArrayList<LetterParticle>>();
+
+    setupExample();
+
+    exploded = false;
+}
+
 void addLine() {
     if (leftPos > minLeftPos) {
         leftPos = minLeftPos;
@@ -166,5 +178,5 @@ void draw() {
 }
 
 void onResize() {
-    size($(window).width(), $(window).height() - 120, P2D);
+    size($(window).width(), $(window).height() - 175, P2D);
 }
