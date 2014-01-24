@@ -9,25 +9,37 @@
         <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='description' content='Triangulated Helvetica'>
         <link rel='stylesheet' href='../assets/css/style.css' />
+        <link rel="stylesheet" href="../assets/css/highlight.min.css">
+        <script src="../assets/js/lib/highlight.pack.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
     </head>
     <body>
          <div class='description'>
             <h1>Triangulated Helvetica</h1>
-            <p>Eperimentation with triangulation and Helvetica using <a href='http://processingjs.org/' target='_blank'>processing.js</a>.</p>
+            <p>Eperimentation with triangulation and Helvetica. The examples below use <a href='http://processingjs.org/' target='_blank'>processing.js</a>, but in theory the graphics could be rendered any way you like.</p>
             <h2>Usage:</h2>
-            <p>Requires <a href='https://github.com/r3mi/poly2tri.js'>poly2tri.js</a><br/><br/>
-            Include scripts<br/><br/>
-            <code>
-                &lt;script type='text/javascript' src='poly2tri.js'&gt;&lt;/script&gt;<br/>
-                &lt;script type='text/javascript' src='TriangulatedHelvetica.js'&gt;&lt;/script&gt;
-            </code><br/><br/>
+            <p>Requires <a href='https://github.com/r3mi/poly2tri.js'>poly2tri.js.</a> Currently only supports captital letters A-Z, support for more characters coming soon.</p>
+            <pre class='code-example'><code>
 
-            Create letters (currently only supports captital A-Z)<br/><br/>
-            <code>
-                &lt;script type='text/javascript'&gt;<br/>
-                var letterTriangles = TriangulatedHelvetica.A(fontSize, x, y)<br/>
-                &lt;/script&gt;
-            </code>
+            <span class="hljs-tag">&lt;<span class="hljs-title">script</span><span class="hljs-attribute"> src</span>=<span class="hljs-value">"poly2tri.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">script</span><span class="hljs-attribute"> src</span>=<span class="hljs-value">"TriangulatedHelvetica.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+
+            //create the letter "A"
+
+            //The default font size is 50px,
+            //so this number will be a multiple of that.
+            var size = 2;
+            //The x position of the letter
+            var xPosition = 10;
+            //The y position of the letter
+            var yPosition = 2;
+
+            var letterTriangles = TriangulatedHelvetica.A(size, xPosition, yPosition);
+            console.log(letterTriangles);
+
+
+
+            </code></pre>
         </div>
     </body>
 </html>

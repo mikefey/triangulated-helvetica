@@ -138,3 +138,7 @@ a.back-btn:hover {
   color:#fff;
   border:2px solid #fff;
 }
+
+.code-example {
+  float:left;
+}
