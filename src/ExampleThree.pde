@@ -36,9 +36,9 @@ void setup() {
 void setupExample() {
     fontSize = 5;
     lettersToRender = new String[3];
-    lettersToRender[0] = 'H';
-    lettersToRender[1] = 'E';
-    lettersToRender[2] = 'Y';
+    lettersToRender[0] = 'G';
+    lettersToRender[1] = 'H';
+    lettersToRender[2] = 'I';
 
     for (var i = 0; i < lettersToRender.length; i++) {
         addLetter(lettersToRender[i]);
@@ -236,5 +236,5 @@ void draw() {
 }
 
 void onResize() {
-    size($(window).width(), $(window).height() - 175, P2D);
+    size($(window).width(), $(window).height() - 185, P2D);
 }

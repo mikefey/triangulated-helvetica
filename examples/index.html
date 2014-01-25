@@ -5,40 +5,81 @@
 <!--[if IE 9 ]>    <html class='ie9'> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang='en'> <!--<![endif]-->
     <head>
-        <title>Helvetica</title>
+        <title>Triangulated Helvetica</title>
         <meta name='apple-mobile-web-app-capable' content='yes' />
         <meta name='description' content='Triangulated Helvetica'>
         <link rel='stylesheet' href='../assets/css/style.css' />
         <link rel="stylesheet" href="../assets/css/highlight.min.css">
         <script src="../assets/js/lib/highlight.pack.js"></script>
         <script>hljs.initHighlightingOnLoad();</script>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-2361692-47']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
     </head>
     <body>
-         <div class='description'>
+        <div class='description'>
             <h1>Triangulated Helvetica</h1>
-            <p>Eperimentation with triangulation and Helvetica. The examples below use <a href='http://processingjs.org/' target='_blank'>processing.js</a>, but in theory the graphics could be rendered any way you like.</p>
+            <p>Eperimentation with triangulation and Helvetica. The examples below use <a href='http://processingjs.org/' target='_blank'>processing.js</a>, but the graphics could be rendered using any method.</p>
+            <h2>Examples:</h2>
+            <div class='example-description'>
+                <div class='title-wrapper'>
+                    <h3>Randomly coloring triangles</h3><a href='multicolored' class='back-btn'>VIEW EXAMPLE</a>
+                </div>
+                <a class='example-image' href='multicolored'><img id='color-image' src='../assets/images/color.jpg' /></a>
+            </div>
+            <div class='example-description'>
+                <div class='title-wrapper'>
+                    <h3>Adding physics with Toxiclibs</h3><a href='draggable' class='back-btn'>VIEW EXAMPLE</a>
+                </div>
+                <a class='example-image' href='draggable'><img id='draggable-image' src='../assets/images/draggable.jpg' /></a>
+            </div>
+            <div class='example-description'>
+                <div class='title-wrapper'>
+                    <h3>Exploding Letters</h3><a href='explode' class='back-btn'>VIEW EXAMPLE</a>
+                </div>
+                <a class='example-image' href='explode'><img id='explode-image' src='../assets/images/explode.jpg' /></a>
+            </div>
             <h2>Usage:</h2>
-            <p>Requires <a href='https://github.com/r3mi/poly2tri.js'>poly2tri.js.</a> Currently only supports captital letters A-Z, support for more characters coming soon.</p>
+            <p>Requires <a href='https://github.com/r3mi/poly2tri.js' target='_blank'>poly2tri.js</a>. Currently only supports captital letters A-Z, support for more characters coming soon.</p>
             <pre class='code-example'><code>
 
-            <span class="hljs-tag">&lt;<span class="hljs-title">script</span><span class="hljs-attribute"> src</span>=<span class="hljs-value">"poly2tri.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-title">script</span><span class="hljs-attribute"> src</span>=<span class="hljs-value">"TriangulatedHelvetica.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span><span class="hljs-attribute"> src</span>=<span class="hljs-value">"poly2tri.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span><span class="hljs-attribute"> src</span>=<span class="hljs-value">"TriangulatedHelvetica.js"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-            //create the letter "A"
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span></span>&gt;</span>
 
-            //The default font size is 50px,
-            //so this number will be a multiple of that.
-            var size = 2;
-            //The x position of the letter
-            var xPosition = 10;
-            //The y position of the letter
-            var yPosition = 2;
+    <span class='code-comment'>//Create the letter "A"</span>
 
-            var letterTriangles = TriangulatedHelvetica.A(size, xPosition, yPosition);
-            console.log(letterTriangles);
+    <span class='code-comment'>//The default font size is 50px,
+    //so this number will be a multiple of that.</span>
+    var size = 2;
 
+    <span class='code-comment'>//The x position of the letter</span>
+    var xPosition = 10;
 
+    <span class='code-comment'>//The y position of the letter</span>
+    var yPosition = 2;
 
+    var letterTriangles = TriangulatedHelvetica.A(size, xPosition, yPosition);
+
+    <span class='code-comment'>//View console to see returned
+    //array of Triangle objects.</span>
+    console.log(letterTriangles);
+
+    <span class='code-comment'>//To get the width of a letter, get its width
+    //using the 'getLetterWidth' method, then multiply
+    //that number by the letter size.</span>
+    var letterWidth = TriangulatedHelvetica.getLetterWidth('A') * size;
+
+    <span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
             </code></pre>
         </div>
     </body>

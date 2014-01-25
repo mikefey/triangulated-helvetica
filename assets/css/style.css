@@ -16,6 +16,8 @@ body, html {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   overflow-x:hidden;
+  font-size: 18px;
+  line-height: 22px;
 }
 
 a {
@@ -36,7 +38,7 @@ canvas {
 h1,
 h2 {
   float:left;
-  font-size: 22px;
+  font-size: 28px;
   font-weight: bold;
   margin-left:20px;
   margin-bottom: 0px;
@@ -44,9 +46,20 @@ h2 {
 
 h2 {
   width:100%;
-  font-size: 18px;
+  font-size: 24px;
   color:#aaa;
   margin-bottom: 40px;
+}
+
+h3 {
+  float: left;
+  margin-top:20px;
+  font-size: 20px;
+  color:#aaa;
+}
+
+.description h2 {
+  margin-bottom: 0px;
 }
 
 .description {
@@ -115,7 +128,7 @@ a.back-btn {
   -o-user-select: none;
   user-select: none;
   float:left;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
   color:#aaa;
   font-family: 'Helvetica';
@@ -134,11 +147,57 @@ a.back-btn {
   transition: color 0.3s ease-out, border 0.3s ease-out;
 }
 
+.example-description {
+  float:left;
+  width:100%;
+  margin:20px 0px;
+}
+
 a.back-btn:hover {
   color:#fff;
   border:2px solid #fff;
 }
 
 .code-example {
+  width:100%;
   float:left;
+  max-width: 700px;
+}
+
+.code-comment {
+  color:#888;
+}
+
+#color-image {
+  width:521px;
+  height:auto;
+}
+
+#draggable-image {
+  width:525px;
+  height:auto;
+}
+
+#explode-image {
+  width:415px;
+  height:auto;
+}
+
+.example-image {
+  display: block;
+  float:left;
+  margin-top:10px;
+}
+
+.title-wrapper {
+  float:left;
+  width:100%;
+}
+
+.title-wrapper .back-btn {
+  margin-top:12px;
+}
+
+.code-example {
+  font-size: 14px;
 }
