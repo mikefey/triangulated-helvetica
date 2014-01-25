@@ -236,5 +236,5 @@ void draw() {
 }
 
 void onResize() {
-    size($(window).width(), $(window).height() - 185, P2D);
+    size($(window).width(), $(window).height() - 255, P2D);
 }

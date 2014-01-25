@@ -16,20 +16,26 @@ $(document).ready(function() {
 
     function setup() {
         initialSetupInterval = setInterval(function() {
+
             if ($('#example1').length > 0) {
                 processingInstance = Processing.getInstanceById('example1');
-                $('#change-color-btn').bind('click', processingInstance.changeLetterColors);
             } else if ($('#example2').length > 0) {
                 processingInstance = Processing.getInstanceById('example2');
-                $('#reset-letters-btn').bind('click', processingInstance.resetLetters);
             } else if ($('#example3').length > 0) {
                 processingInstance = Processing.getInstanceById('example3');
-                $('#explode-letters-btn').bind('click', processingInstance.explodeLetters);
-                $('#reset-letters-btn').bind('click', processingInstance.resetLetters);
             }
 
             if (processingInstance.setupExample) {
                 clearInterval(initialSetupInterval);
+
+                if ($('#example1').length > 0) {
+                    $('#change-color-btn').bind('click', processingInstance.changeLetterColors);
+                } else if ($('#example2').length > 0) {
+                    $('#reset-letters-btn').bind('click', processingInstance.resetLetters);
+                } else if ($('#example3').length > 0) {
+                    $('#explode-letters-btn').bind('click', processingInstance.explodeLetters);
+                    $('#reset-letters-btn').bind('click', processingInstance.resetLetters);
+                }
 
                 processingInstance.setupExample();
             }
