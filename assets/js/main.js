@@ -7,6 +7,7 @@ $(document).ready(function() {
         var resizeEvent = 'resize';
         if (isMobile() || isTablet()) {
             resizeEvent = 'orientationchange';
+            $('body').addClass('mobile')
         }
 
         $(window).bind(resizeEvent, onResize);

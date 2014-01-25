@@ -5,9 +5,10 @@
 <!--[if IE 9 ]>    <html class='ie9'> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang='en'> <!--<![endif]-->
     <head>
-        <title>Triangulated Helvetica</title>
+        <title>Mike Fey | Triangulated Helvetica</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
         <meta name='apple-mobile-web-app-capable' content='yes' />
-        <meta name='description' content='Triangulated Helvetica'>
+        <meta name='description' content='Eperimentation with triangulation and Helvetica.'>
         <link rel='stylesheet' href='../assets/css/style.css' />
         <link rel="stylesheet" href="../assets/css/highlight.min.css">
         <script src="../assets/js/lib/highlight.pack.js"></script>
@@ -84,6 +85,31 @@
 
     <span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
             </code></pre>
-        </div>
+    </div>
+    <script type="text/javascript">
+            function isMobile() {
+                var isMobile = (/iphone|ipod|android|blackberry|opera mini|opera mobi|skyfire|maemo|windows phone|palm|iemobile|symbian|symbianos|fennec/i.test(navigator.userAgent.toLowerCase()));
+
+                if (isMobile != true) {
+                    isMobile = false;
+                }
+
+                return isMobile;
+            }
+
+            function isTablet() {
+                var isTablet = (/ipad|android 3|sch-i800|playbook|tablet|kindle|gt-p1000|sgh-t849|shw-m180s|a510|a511|a100|dell streak|silk/i.test(navigator.userAgent.toLowerCase()));
+
+                if (isTablet != true) {
+                    isTablet = false;
+                }
+
+                return isTablet;
+            }
+
+            if (isMobile() || isTablet()) {
+                document.getElementsByTagName('body')[0].className = 'mobile';
+            }
+        </script>
     </body>
 </html>

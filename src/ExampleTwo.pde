@@ -33,6 +33,9 @@ void setup() {
 
 void setupExample() {
     fontSize = 5;
+    if ($('body').hasClass('mobile')) {
+        fontSize = 3;
+    }
     lettersToRender = new String[3];
     lettersToRender[0] = 'D';
     lettersToRender[1] = 'E';

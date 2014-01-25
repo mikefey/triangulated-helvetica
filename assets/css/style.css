@@ -12,12 +12,12 @@ body, html {
   margin:0;
   padding:0;
   font-family: 'Helvetica';
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  overflow-x:hidden;
   font-size: 18px;
   line-height: 22px;
+}
+
+body.mobile {
+  padding-right: 40px;
 }
 
 a {
@@ -49,6 +49,10 @@ h2 {
   margin-bottom: 0px;
 }
 
+h1 {
+  line-height: 30px;
+}
+
 h2 {
   width:100%;
   font-size: 24px;
@@ -63,6 +67,11 @@ h3 {
   color:#aaa;
 }
 
+h2 {
+  line-height: 26px;
+}
+
+
 .description h2 {
   margin-bottom: 0px;
 }
@@ -72,6 +81,10 @@ h3 {
   width:100%;
   max-width: 700px;
   margin:20px 0px 0px 20px;
+}
+
+.mobile .description {
+  max-width: 100%
 }
 
 .description h1,
@@ -182,9 +195,15 @@ a.back-btn:hover {
 }
 
 .code-example {
+  padding-right: 20px;
+  position: relative;
   width:100%;
   float:left;
   max-width: 700px;
+}
+
+.mobile .code-example {
+  max-width: 100%
 }
 
 .code-comment {
@@ -206,6 +225,13 @@ a.back-btn:hover {
   height:auto;
 }
 
+.mobile #color-image,
+.mobile #draggable-image,
+.mobile #explode-image {
+  width:90%;
+  height:auto;
+}
+
 .example-image {
   display: block;
   float:left;
@@ -223,4 +249,17 @@ a.back-btn:hover {
 
 .code-example {
   font-size: 14px;
+}
+
+@media screen and (max-width: 470px) {
+  .mobile .title-wrapper .back-btn {
+    float:left;
+    margin:0px;
+    margin-bottom: 15px;
+  }
+
+  .code-example {
+    font-size: 8px;
+  }
+}
 }

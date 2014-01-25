@@ -35,6 +35,10 @@ void setup() {
 
 void setupExample() {
     fontSize = 5;
+    if ($('body').hasClass('mobile')) {
+        fontSize = 1;
+        letterSpacing = 5;
+    }
     lettersToRender = new String[3];
     lettersToRender[0] = 'G';
     lettersToRender[1] = 'H';
