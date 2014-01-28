@@ -1,3 +1,9 @@
+//----------------------------------------------------------
+
+//Requires poly2tri.js (https://github.com/r3mi/poly2tri.js)
+
+//----------------------------------------------------------
+
 var TriangulatedHelvetica = {};
 
 TriangulatedHelvetica.widths = [{
