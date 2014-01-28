@@ -26,21 +26,22 @@ $(document).ready(function() {
                 processingInstance = Processing.getInstanceById('example3');
             }
 
-            if (processingInstance.setupExample) {
-                clearInterval(initialSetupInterval);
+            if (processingInstance) {
+                if (processingInstance.setupExample) {
+                    clearInterval(initialSetupInterval);
 
-                if ($('#example1').length > 0) {
-                    $('#change-color-btn').bind('click', processingInstance.changeLetterColors);
-                } else if ($('#example2').length > 0) {
-                    $('#reset-letters-btn').bind('click', processingInstance.resetLetters);
-                } else if ($('#example3').length > 0) {
-                    $('#explode-letters-btn').bind('click', processingInstance.explodeLetters);
-                    $('#reset-letters-btn').bind('click', processingInstance.resetLetters);
+                    if ($('#example1').length > 0) {
+                        $('#change-color-btn').bind('click', processingInstance.changeLetterColors);
+                    } else if ($('#example2').length > 0) {
+                        $('#reset-letters-btn').bind('click', processingInstance.resetLetters);
+                    } else if ($('#example3').length > 0) {
+                        $('#explode-letters-btn').bind('click', processingInstance.explodeLetters);
+                        $('#reset-letters-btn').bind('click', processingInstance.resetLetters);
+                    }
+
+                    processingInstance.setupExample();
                 }
-
-                processingInstance.setupExample();
             }
-
         }, 13);
     }
 

@@ -103,6 +103,7 @@ h2 {
 .canvas-wrapper {
   float:left;
   width:100%;
+  overflow-x: hidden;
 }
 
 #example1 {
